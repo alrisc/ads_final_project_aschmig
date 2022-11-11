@@ -1,29 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head style="color:purple;">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Page</title>
+    <ul></ul>
+    <style>
+        h1 {text-align: center;}
+        h2 {text-align: center;}
+        h3 {text-align: center;}
 
+        body {font-family: Arial;color: purple;}
+        
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+            text-align:center; /*add this to center the buttons*/
+        }
+        
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            /*float: left;*/ /*remove floats*/
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            width: 24%;
+            border-bottom: 3px solid transparent;/*Add this to prevent flickering/jumping*/
+            text-align:justify; /*add this to center the buttons*/
+        }
+        
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+            text-align:justify; /*add this to center the buttons*/
+        }
+        
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+            text-align:justify; /*add this to center the buttons*/
+        }
+        
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            text-align:center; /*add this to center the buttons*/
+        }
+
+    </style>
 </head>
-<body>
-    <h1>TEST Iris Dataset</h1>
-    <form action="{{ url_for('predict') }}" method="post">
-        <input type = "text" name="Sepal Length" placeholder="Sepal Length" required="required">
-        <input type = "text" name="Sepal Width" placeholder="Sepal Width" required="required">
-        <input type = "text" name="Petal Length" placeholder="Petal Length" required="required">
-        <input type = "text" name="Petal Width" placeholder="Petal Width" required="required">
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">
-            Predict
-        </button>
+<body style="color:purple;">
+    
+    <h1>Data Scientist Salary Prediction</h1>
+    <h3>(based on 2020-2022 data)</h3>
 
-        <br/>
-        <br/>
+    <div class="tab" style="text-align:center;">
+        <button class="tablinks" onclick="openTab(event, 'Prediction')" style="text-align: center;">Salary Predictor</button>
+        <button class="tablinks" onclick="openTab(event, 'Data_recap')" style="text-align: center;">Data Description</button>
+    </div>
 
-        {{Predictions}}
+    <div id="Prediction" class="tabcontent">
+        <form action="{{ url_for('predict') }}" method="post">
+            <p>Please select your level of experience:</p>
+            <div>
+                <input type="radio" id="entry_level" name="experience_level" value="EN">
+                <label for="entry_level">Entry</label><br>
+                <input type="radio" id="middle_level" name="experience_level" value="MI">
+                <label for="middle_level">Middle</label><br>
+                <input type="radio" id="senior_level" name="experience_level" value="SE">
+                <label for="senior_level">Senior</label>
+                <input type="radio" id="executive_level" name="experience_level" value="EX">
+                <label for="executive_level">Executive</label>
+            </div>
+            <br/>
+            <p>Please select your level of employment:</p>
+            <div>
+                <input type="radio" id="part_time" name="employment_type" value="PT">
+                <label for="part_time">Part-time</label><br>
+                <input type="radio" id="full_time" name="employment_type" value="FT">
+                <label for="full_time">Full-time</label><br>
+                <input type="radio" id="contract" name="employment_type" value="CT">
+                <label for="contract">Contract</label>
+                <input type="radio" id="freelance" name="employment_type" value="FL">
+                <label for="freelance">Freelance</label>
+            </div>
+            <br/>
+            <p>Please select your preference of remote work:</p>
+            <div>
+                <input type="radio" id="no_remote" name="remote_ratio" value="0">
+                <label for="no_remote">No Remote (Less than 20% Remote Work)</label><br>
+                <input type="radio" id="partial_remote" name="remote_ratio" value="50">
+                <label for="partial_remote">Partial Remote (Approx. 50% Remove Work)</label><br>
+                <input type="radio" id="fully_remote" name="remote_ratio" value="100">
+                <label for="fully_remote">Fully Remote (More than 80% Remote Work)</label>
+            </div>
+            <br/>
+            <p>Please select the company size:</p>
+            <div>
+                <input type="radio" id="small" name="company_size" value="S">
+                <label for="small">Small Company (less than 50 employees)</label><br>
+                <input type="radio" id="medium" name="company_size" value="M">
+                <label for="medium">Medium Company (between 50 and 250 employees)</label><br>
+                <input type="radio" id="large" name="company_size" value="L">
+                <label for="large">Large Company (greater than 250 employees)</label>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary btn-block btn-large">
+                Predict
+            </button>
 
-    </form>
+            <br/>
+            <br/>
+
+            {{Predictions}}
+
+        </form>
+    </div>
+
+    <div id="Data_recap" class="tabcontent">
+        <p>
+            The data present here is based off salary data scraped from https://salaries.ai-jobs.net by Ruchi Bhatia who assembled it into a dataframe on kaggle.com (https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries).
+        </p>
+        <p>
+            The dataset originally contained 10 attributes as well as the target value of salary_in_usd.  Only the four attributes were retained as the rest had reason for bias either due to time series or geolocation.
+        </p>
+        <p>
+            Experience Level is the experience that you believe you yourself would categorize your own experience as in your prediction.  If you're not yet a Data Scientist, you would select entry_level.  If you are already a Data Scientist, then 
+        </p>
+    </div>
+
+    <script style="color: purple;">
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>
