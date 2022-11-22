@@ -75,45 +75,45 @@
         <form action="{{ url_for('predict') }}" method="post">
             <p>Please select your level of experience:</p>
             <div>
-                <input type="radio" id="entry_level" name="experience_level" value="EN">
+                <input type="radio" id="entry_level" name="experience_level" value="1">
                 <label for="entry_level">Entry</label><br>
-                <input type="radio" id="middle_level" name="experience_level" value="MI">
+                <input type="radio" id="middle_level" name="experience_level" value="2">
                 <label for="middle_level">Middle</label><br>
-                <input type="radio" id="senior_level" name="experience_level" value="SE">
+                <input type="radio" id="senior_level" name="experience_level" value="3">
                 <label for="senior_level">Senior</label>
-                <input type="radio" id="executive_level" name="experience_level" value="EX">
+                <input type="radio" id="executive_level" name="experience_level" value="4">
                 <label for="executive_level">Executive</label>
             </div>
             <br/>
             <p>Please select your level of employment:</p>
             <div>
-                <input type="radio" id="part_time" name="employment_type" value="PT">
+                <input type="radio" id="part_time" name="employment_type" value="1">
                 <label for="part_time">Part-time</label><br>
-                <input type="radio" id="full_time" name="employment_type" value="FT">
+                <input type="radio" id="full_time" name="employment_type" value="2">
                 <label for="full_time">Full-time</label><br>
-                <input type="radio" id="contract" name="employment_type" value="CT">
+                <input type="radio" id="contract" name="employment_type" value="3">
                 <label for="contract">Contract</label>
-                <input type="radio" id="freelance" name="employment_type" value="FL">
+                <input type="radio" id="freelance" name="employment_type" value="4">
                 <label for="freelance">Freelance</label>
             </div>
             <br/>
             <p>Please select your preference of remote work:</p>
             <div>
-                <input type="radio" id="no_remote" name="remote_ratio" value="0">
+                <input type="radio" id="no_remote" name="remote_ratio" value="1">
                 <label for="no_remote">No Remote (Less than 20% Remote Work)</label><br>
-                <input type="radio" id="partial_remote" name="remote_ratio" value="50">
+                <input type="radio" id="partial_remote" name="remote_ratio" value="2">
                 <label for="partial_remote">Partial Remote (Approx. 50% Remove Work)</label><br>
-                <input type="radio" id="fully_remote" name="remote_ratio" value="100">
+                <input type="radio" id="fully_remote" name="remote_ratio" value="3">
                 <label for="fully_remote">Fully Remote (More than 80% Remote Work)</label>
             </div>
             <br/>
             <p>Please select the company size:</p>
             <div>
-                <input type="radio" id="small" name="company_size" value="S">
+                <input type="radio" id="small" name="company_size" value="1">
                 <label for="small">Small Company (less than 50 employees)</label><br>
-                <input type="radio" id="medium" name="company_size" value="M">
+                <input type="radio" id="medium" name="company_size" value="2">
                 <label for="medium">Medium Company (between 50 and 250 employees)</label><br>
-                <input type="radio" id="large" name="company_size" value="L">
+                <input type="radio" id="large" name="company_size" value="3">
                 <label for="large">Large Company (greater than 250 employees)</label>
             </div>
             <br/>
