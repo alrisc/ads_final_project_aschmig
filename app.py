@@ -21,8 +21,12 @@ def home():
 #"request" is used to receive values that have been returned from the model.py file.
 @app.route("/predict",methods=['POST'])
 def predict():
-    float_vals = [float(x) for x in request.form.values()] #this converts the string values retrived via request.form.values() from model.py into float values.
-    vals = [np.array(float_vals)]
+    #transformed_vals = request.form.values()
+    transformed_vals = [x for x in request.form.values()] #this converts the string values retrived via request.form.values() from model.py into float values.
+
+    vals = [np.array(transformed_vals)]
+    
+    #vals = vals.reshape(1,-1)
 
     predictions = model.predict(vals)
 

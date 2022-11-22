@@ -18,7 +18,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 df = pd.read_csv("ds_salaries.csv")
 
-df_original = df.drop(['Unnamed: 0', 'salary', 'salary_currency', 'employee_residence'],axis=1)
+df_original = df.drop(['work_year','Unnamed: 0', 'salary', 'salary_currency', 'employee_residence','job_title','company_location'],axis=1)
 
 df_original['work_year'] = df_original['work_year'].astype('object',copy=False)
 df_original['remote_ratio'] = df_original['remote_ratio'].astype('object',copy=False)
