@@ -20,8 +20,14 @@ df = pd.read_csv("ds_salaries.csv")
 
 df_original = df.drop(['work_year','Unnamed: 0', 'salary', 'salary_currency', 'employee_residence','job_title','company_location'],axis=1)
 
-df_original['work_year'] = df_original['work_year'].astype('object',copy=False)
+#df_original['work_year'] = df_original['work_year'].astype('object',copy=False)
 df_original['remote_ratio'] = df_original['remote_ratio'].astype('object',copy=False)
+
+#This is where I convert the data to be numeric categories.
+df_original['experience_level'] = df_original['experience_level'].replace(['EN','MI','SE','EX'],["1","2","3","4"])
+df_original['employment_type'] = df_original['employment_type'].replace(['FT','PT','CT','FL'],["1","2","3","4"])
+df_original['remote_ratio'] = df_original['remote_ratio'].replace([0,50,100],["1","2","3"])
+df_original['company_size'] = df_original['company_size'].replace(['S','M','L'],["1","2","3"])
 
 X = df_original.drop('salary_in_usd',axis=1)
 y = df_original['salary_in_usd']

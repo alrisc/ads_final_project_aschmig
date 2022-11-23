@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head style="color:purple;">
+<head style="color:black;">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
         h2 {text-align: center;}
         h3 {text-align: center;}
 
-        body {font-family: Arial;color: purple;}
+        body {font-family: Arial;color: black;}
         
         /* Style the tab */
         .tab {
@@ -19,7 +19,7 @@
             border: 1px solid #ccc;
             background-color: #f1f1f1;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-            text-align:center; /*add this to center the buttons*/
+            text-align:left; /*add this to center the buttons*/
         }
         
         /* Style the buttons inside the tab */
@@ -34,7 +34,7 @@
             font-size: 17px;
             width: 24%;
             border-bottom: 3px solid transparent;/*Add this to prevent flickering/jumping*/
-            text-align:justify; /*add this to center the buttons*/
+            text-align: center; /*add this to center the buttons*/
         }
         
         /* Change background color of buttons on hover */
@@ -55,13 +55,13 @@
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
-            text-align:center; /*add this to center the buttons*/
+            text-align:left; /*add this to center the buttons*/
         }
 
     </style>
 </head>
 
-<body style="color:purple;">
+<body style="color:black;">
     
     <h1>Data Scientist Salary Prediction</h1>
     <h3>(based on 2020-2022 data)</h3>
@@ -131,17 +131,33 @@
 
     <div id="Data_recap" class="tabcontent">
         <p>
-            The data present here is based off salary data scraped from https://salaries.ai-jobs.net by Ruchi Bhatia who assembled it into a dataframe on kaggle.com (https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries).
-        </p>
-        <p>
+            The data present here is based off salary data scraped from <a href="https://salaries.ai-jobs.net">salaries.ai-jobs.net</a> by Ruchi Bhatia who assembled it into a dataframe on <a href = https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries>kaggle</a>.
+            <br>
+            <br>
             The dataset originally contained 10 attributes as well as the target value of salary_in_usd.  Only the four attributes were retained as the rest had reason for bias either due to time series or geolocation.
-        </p>
-        <p>
-            Experience Level is the experience that you believe you yourself would categorize your own experience as in your prediction.  If you're not yet a Data Scientist, you would select entry_level.  If you are already a Data Scientist, then 
+            <br>
+            Experience Level is the experience that you believe you yourself would categorize your own experience as in your prediction.  If you're not yet a Data Scientist, you would select entry_level.<br>
+            If you are already a Data Scientist, then you should either select your current experience level or the level you anticipate to be at when you are looking for your next job.
+            <br>
+            <br>
+            Employment type, remote work, and company size can be set however you would like, from a slight adjustment of your current position to the idealized position you see for yourself at some point in time.
+            <br>
+            <br>
+            Below is some graphical context to the data set being used in this model.
+            <br>
+            <br>
+            <img src="images/company_size_breakdown.png">
+            <img src="images/employment_type_breakdown.png">
+            <br>
+            <img src="images/experience_breakdown.png">
+            <img src="images/remote_work_ratio_breakdown.png">
+            <br>
+            <img src="images/work_year_data_breakdown.png">
+            <img src="images/salary_breakdown.png">
         </p>
     </div>
 
-    <script style="color: purple;">
+    <script style="color: black;">
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");

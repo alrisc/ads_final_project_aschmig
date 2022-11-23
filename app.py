@@ -5,6 +5,7 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -22,10 +23,22 @@ def home():
 @app.route("/predict",methods=['POST'])
 def predict():
     #transformed_vals = request.form.values()
-    transformed_vals = [x for x in request.form.values()] #this converts the string values retrived via request.form.values() from model.py into float values.
-
-    vals = [np.array(transformed_vals)]
+    print("\nRequest Form: ",request.form.values(),'\n')
     
+    transformed_vals = [x for x in request.form.values()] #this converts the string values retrived via request.form.values() from model.py into float values.
+    print("\nTransformed Vals: ",transformed_vals,'\n')
+
+    data = {
+        "experience_level": [transformed_vals[0]],
+        "employment_type": [transformed_vals[1]],
+        "remote_ratio": [transformed_vals[2]],
+        "company_size": [transformed_vals[3]]
+    }
+    #load data into a DataFrame object:
+    vals = pd.DataFrame(data)
+
+    #vals = [np.array(transformed_vals)]
+    #print("\nVals in array: ",vals,'\n')
     #vals = vals.reshape(1,-1)
 
     predictions = model.predict(vals)
