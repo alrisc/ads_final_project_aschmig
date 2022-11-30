@@ -80,13 +80,17 @@ X_test_transformed = data_pipeline.transform(X_test[features])
 
 number_of_inputs = X_train_transformed.shape[1]
 
+from sklearn.ensemble import RandomForestRegressor
+
 np.random.seed(42)
+
 full_pipeline_with_predictor = Pipeline([
         ("preparation", data_pipeline),
-        ("logistic", LogisticRegression(
-            penalty='l1', 
-            C = 1, 
-            solver="saga"))
+        ("rfr", RandomForestRegressor(
+            n_estimators = 1000,
+            criterion='absolute_error',
+            max_depth = 100,
+        ))
     ])
 
 classifier = full_pipeline_with_predictor

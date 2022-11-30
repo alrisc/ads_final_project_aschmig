@@ -16,7 +16,7 @@
         /* Style the tab */
         .tab {
             overflow: hidden;
-            border: 1px solid #ccc;
+            border: 10px solid #ccc;
             background-color: #f1f1f1;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
             text-align:left; /*add this to center the buttons*/
@@ -52,10 +52,16 @@
         /* Style the tab content */
         .tabcontent {
             display: none;
-            padding: 6px 12px;
+            padding: 6px 120px;
             border: 1px solid #ccc;
             border-top: none;
             text-align:left; /*add this to center the buttons*/
+        }
+        .centered {
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
     </style>
@@ -87,10 +93,10 @@
             <br/>
             <p>Please select your level of employment:</p>
             <div>
-                <input type="radio" id="part_time" name="employment_type" value="1">
-                <label for="part_time">Part-time</label><br>
-                <input type="radio" id="full_time" name="employment_type" value="2">
+                <input type="radio" id="full_time" name="employment_type" value="1">
                 <label for="full_time">Full-time</label><br>
+                <input type="radio" id="part_time" name="employment_type" value="2">
+                <label for="part_time">Part-time</label><br>
                 <input type="radio" id="contract" name="employment_type" value="3">
                 <label for="contract">Contract</label>
                 <input type="radio" id="freelance" name="employment_type" value="4">
@@ -146,14 +152,15 @@
             Below is some graphical context to the data set being used in this model.
             <br>
             <br>
-            <img src="images/company_size_breakdown.png">
-            <img src="images/employment_type_breakdown.png">
+
+            <img src='/static/images/company_size_breakdown.png' alt="Company Size" width="600" height="500"/>
+            <img src='/static/images/employment_type_breakdown.png' alt="Employment Type" width="600" height="500"/>
             <br>
-            <img src="images/experience_breakdown.png">
-            <img src="images/remote_work_ratio_breakdown.png">
+            <img src='/static/images/experience_breakdown.png' alt="Experience Level" width="600" height="500"/>
+            <img src='/static/images/remote_work_ratio_breakdown.png' alt="Remote Work Ratio" width="600" height="500"/>
             <br>
-            <img src="images/work_year_data_breakdown.png">
-            <img src="images/salary_breakdown.png">
+            <img src='/static/images/work_year_data_breakdown.png' alt="Work Year Data" width="600" height="500"/>
+            <img src='/static/images/salary_breakdown.png' alt="Salary" width="600" height="500"/>
         </p>
     </div>
 

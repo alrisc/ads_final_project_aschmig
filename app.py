@@ -43,9 +43,11 @@ def predict():
 
     predictions = model.predict(vals)
 
+    predicted_income = f'${predictions[0]:,.2f}'
+    
     #Lastly, we specify which page we want to send this information to so it is available for request.
     #We also must specify what it's object name is for reference in the page, which in this case is "Predictions".
-    return render_template("index.html",Predictions = predictions)
+    return render_template("index.html",Predictions = predicted_income)
 
 
 if __name__ == '__main__':
