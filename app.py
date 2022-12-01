@@ -94,6 +94,7 @@ def predict():
     else:
         comp_size = 'Unknown Company Size'
 
+
     predicted_income = ("As {} {} working {} at a {} company, you could expect to make around {} USD.".format(exp_lvl,emp_type,rem_rat,comp_size,f'${predictions[0]:,.2f}'))
     
     
